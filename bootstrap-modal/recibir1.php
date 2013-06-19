@@ -4,5 +4,5 @@
  $mensaje=$_POST["mensaje"];
 
  // echo " Datos ". " - " .$email . " - " . $pass . " - " . $mensaje; 
-echo "ok";
+echo "oksads";
  ?>

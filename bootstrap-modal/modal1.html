@@ -1,0 +1,49 @@
+
+    <form method="POST" id="frm_modal"  class="hform" data-action='recibir1.php' name="login_form" >
+    <fieldset>  
+         <label>Email sdfgw5rhsth  </label>
+          <input type="text" class="span3" name="email" id="email" placeholder="Email">
+    </fieldset>
+    <fieldset>
+          <label>Password</label>
+         <input type="password" class="span3" name="password" placeholder="Password"></fieldset>
+
+         <label>Mensaje gsdfgsdfg</label>
+         <textarea name="mensaje"></textarea>
+    <fieldset>
+         <button type="submit" class="btn btn-primary">registrar</button>
+        <input type="submit">
+      </fieldset>
+    
+    </form>
+   <script>
+   $(document).ready(  function (e) {
+    // alert("entro al modal");
+    // $("#frm_modal").enviarfrm("id");
+
+      Enviar_Formulario("#frm_modal");
+    
+    //   $("#frm_modal").submit( function(event) {    
+    //     var $form = $(this);
+    //     var $target = $form.attr('data-action');
+    //     console.log("datos : " + $form.serialize());
+    //     $.ajax({
+            
+    //         url:  $form.attr('data-action'),// $form.attr('action'),
+    //         type: $form.attr('method'),
+    //         data: $form.serialize(),
+
+    //         success: function(data) {
+    //             alert(data)
+    //             // $target.html(data);
+
+    //             return false;
+    //         }
+
+    //     });
+    //     return false;// para que no recarge toda la pagina
+    //     // event.preventDefault();
+    // });
+
+      });
+</script>

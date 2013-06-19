@@ -1,10 +1,5 @@
-   <script>
-    $(document).on("ready",function (e) {
-        enviarFrm("#frm-modal") ;
-        alert("modal");
-      });
-</script>
-    <form method="POST"  data-async  data-action='recibir.php' name="login_form" id="frm-modal" class="hform">
+
+    <form method="POST" id="frm_modal"  class="hform" data-action='recibir.php' name="login_form" >
     <fieldset>  
          <label>Email sdfgw5rhsth  </label>
           <input type="text" class="span3" name="email" id="email" placeholder="Email">
@@ -21,3 +16,10 @@
       </fieldset>
     
     </form>
+   <script>
+   $(document).ready(  function (e) {
+    // funcion aobligatoria para enviar el formulario  ID , fucnion a cargar no es obligatorio , metodo: defecto registrar
+       Enviar_Formulario("#frm_modal");
+    
+      });
+</script>

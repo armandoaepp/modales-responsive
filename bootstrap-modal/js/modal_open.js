@@ -1,9 +1,8 @@
 jQuery(function($) {
-
    // para open modal 
     $(".jmodal").on('click',function(e){
         e.preventDefault();
-        alert("clicccsss ");
+       
         var $link   = $(this);
         var $target = $link.attr('href');
         var $titulo = $link.attr('data-titulo');
@@ -39,34 +38,5 @@ jQuery(function($) {
             }
       });
     });
-
-   // para enviar formularios 
-   $.fn.enviarFrm = function( frmID ,accion){
-    alert("frm ");
-
-    $(frmID).submit( function(event) {    
-        var $form = $(this);
-        var $target = $form.attr('data-action');
-        console.log($form.serialize());
-        $.ajax({
-            
-            url:  $form.attr('data-action'),// $form.attr('action'),
-            type: $form.attr('method'),
-            data: $form.serialize(),
-
-            success: function(data) {
-                alert(data)
-                // $target.html(data);
-
-                return false;
-            }
-
-        });
-        return false;// para que no recarge toda la pagina
-        // event.preventDefault();
-    });
-
-   };
-
   
  });
