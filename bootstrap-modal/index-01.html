@@ -7,7 +7,67 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
  <link href="css/ivory.css" rel="stylesheet" />
 
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
 
+ <style type="text/css">
+.loader{
+  background-image: url(img/loading.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100px;
+}
+ </style>
+
+  <script type="text/javascript">
+  $(function($){
+
+ 
+    $(".jmodal").on("click", function(e){  
+ // $(document).on('click','.jmodal',function(e){
+    e.preventDefault();
+
+     var $link   = $(this);
+     var $target = $link.attr('href');
+     var $titulo = $link.attr('data-titulo');
+     var $cancel = $link.attr('btn-cancel'); // true or false
+     var $submit = $link.attr('btn-submit'); // true or false
+
+     // headerof modal 
+     var $header  = '<div class="modal-header"> <button type="button" class="close" data-dismiss="modal">x</button>';
+         $header += '<h3>'+ $titulo +'</h3>';
+         $header += '</div>';
+
+     // footer of modal
+     var $btn_cancel='',$btn_submit='';
+     if($cancel) { $btn_cancel = ' <button data-dismiss="modal" aria-hidden="true">Cancelar</button> ';} ; 
+     if($submit) { $btn_submit = ' <button type="submit">Registrar</button> ';} ;
+
+     var $footer = '<div class="modal-footer">'+ $btn_cancel + $btn_submit +' </div>'; 
+
+    $("#jdialog").html('');
+    //$(".modal-body").addClass('loader');
+    $("#jdialog").modal('show');
+
+  $.ajax({
+      url:$target,
+      type: "POST",
+      success: function(data){
+        var $body= '<div class="modal-body">';
+        $body+= data ;
+        $body+= '</div>';  
+        var frmModal = $header +  $body + $footer
+
+        $("#jdialog").html(frmModal);
+        // console.log(data); 
+    }
+  });
+
+
+ }); 
+
+});
+ </script>
 
 </head>
 <body>
@@ -15,7 +75,7 @@
 
 <a class="jmodal" href="form.php" data-titulo=" Modificar Acopio"  >Abrir Modal sin footer </a> </br>
 
-<a class="jmodal" href="modal.html" data-titulo=" Modificar Acopio" btn-cancel="true"   >Abrir Modal con btn Cancelar enviar a php </a></br>
+<a class="jmodal" href="form.php" data-titulo=" Modificar Acopio" btn-cancel="true"   >Abrir Modal con btn Cancelar </a></br>
 
 <a class="jmodal" href="form.php" data-titulo=" Modificar Acopio"  btn-cancel="true" btn-submit="true" >Abrir Modal Cancel +  Registrar  </a> </br>
 
@@ -48,12 +108,5 @@
 
 
   
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
-  <!-- 
-  <script src="js/jquery.js"></script>
- -->
-  <script src="js/bootstrap.js"></script>
-  <script src="js/jmodal.js"></script>
-
 </body>
 </html>

@@ -1,13 +1,23 @@
-<!-- <div class="modal hide"> -->
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">x</button>
-    <h3 id="tituloModal"></h3>
-  </div>
-  <div class="modal-body">
+   <script>
+    $(document).on("ready",function (e) {
+        enviarFrm("#frm-modal") ;
+        alert("modal");
+      });
+</script>
+    <form method="POST"  data-async  data-action='recibir.php' name="login_form" id="frm-modal" class="hform">
+    <fieldset>  
+         <label>Email sdfgw5rhsth  </label>
+          <input type="text" class="span3" name="email" id="email" placeholder="Email">
+    </fieldset>
+    <fieldset>
+          <label>Password</label>
+         <input type="password" class="span3" name="password" placeholder="Password"></fieldset>
 
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-    <button class="btn btn-primary">Registrar</button>
-  </div>
-<!-- </div> -->
+         <label>Mensaje gsdfgsdfg</label>
+         <textarea name="mensaje"></textarea>
+    <fieldset>
+         <button type="submit" class="btn btn-primary">registrar</button>
+        <input type="submit">
+      </fieldset>
+    
+    </form>
